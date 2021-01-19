@@ -1,0 +1,10 @@
+
+<%= form_with model: @model do |f| %>
+ <%= f.text_field :name, placeholder: "Author Name" %>
+ <%= f.select :birth_year, (Date.current.year - 100)...(Date.current.year + 1) %>
+  <%= f.fields_for :books do |ff|  %>
+    <%= ff.text_field :title %>
+    <%= ff.select :published_year,(Date.current.year - 100)...(Date.current.year + 1)%>
+  <% end %>
+  <%= f.submit "Submit" %>
+ <% end %>

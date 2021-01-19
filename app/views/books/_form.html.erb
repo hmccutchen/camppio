@@ -1,0 +1,7 @@
+
+
+<%= form_with model: @model do |f| %>
+ <%= f.text_field :title, placeholder: "Book Title" %>
+ <%= f.select :published_year, (Date.current.year - 100)...(Date.current.year + 1) %>
+ <%= f.submit "submit" %>
+ <% end %>

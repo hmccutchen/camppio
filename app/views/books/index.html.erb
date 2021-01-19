@@ -1,0 +1,11 @@
+
+<div class="container">
+	<%= link_to "Create Book", new_author_path %>
+</div>
+
+
+<% @model.each do |book| %>
+<%= book.title %>
+<%= book.published_year %>
+<% end %>
+
