@@ -5,7 +5,7 @@
 
 
 <% @model.each do |book| %>
-<%= book.title %>
+<%= link_to book.title, author_book_path( book.author.id, book.id) %>
 <%= book.published_year %>
 <% end %>
 

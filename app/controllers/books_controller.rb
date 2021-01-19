@@ -4,6 +4,7 @@ class BooksController < ApplicationController
   end
 
   def show
+
   	load_model
   end
 
@@ -28,7 +29,7 @@ class BooksController < ApplicationController
   	@author = Author.find(params[:id])
   end
 
-  def load_book
+  def load_model
   	@model = Book.find(params[:id])
   end
 

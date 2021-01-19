@@ -1,13 +1,22 @@
 
-<%= link_to "Books", books_path %>
+<%= link_to "Book List", books_path %>
+
+
+<div class="row justify-content-center">
+	
 
 
 <%= form_with model: @model do |f| %>
  <%= f.text_field :name, placeholder: "Author Name" %>
- <%= f.select :birth_year, (Date.current.year - 100)...(Date.current.year + 1) %>
+  <%= f.label :birth_year %>
+ <%= f.select :birth_year, (Date.current.year - 100)...(Date.current.year + 1) %><br>
   <%= f.fields_for :books do |ff|  %>
-    <%= ff.text_field :title %>
-    <%= ff.select :published_year,(Date.current.year - 100)...(Date.current.year + 1)%>
+    <%= ff.text_field :title, placeholder: "Book Title" %>
+    <%= ff.label :published_year %>
+    <%= ff.select :published_year,(Date.current.year - 100)...(Date.current.year + 1)%><br>
   <% end %>
-  <%= f.submit "Submit" %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
  <% end %>
+
+</div>
+
