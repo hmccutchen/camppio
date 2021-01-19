@@ -1,2 +1,7 @@
-<h1>Book#show</h1>
-<p>Find me in app/views/book/show.html.erb</p>
+<h2><%= @model.title %></h2>
+<p><%= @model.published_year %></p>
+<span><b>Author:</b> <%= @model.author.name %></span>
+<span><b>Birth Year:</b> <%= @model.author.birth_year %></span>
+
+<p><%= link_to "Edit Book", edit_author_path(@model.author.id), class: "btn btn-info" %></p>
+

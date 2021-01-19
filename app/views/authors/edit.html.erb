@@ -1,0 +1,28 @@
+
+<div class="row justify-content-center">
+	
+<h1><%= @book.title %></h1>
+
+</div>
+ <div class="container">
+ 	<%= link_to "Book List", books_path, class: "btn btn-info" %>
+<div class="row justify-content-center">
+	
+
+
+<%= form_for(@model) do |f| %>
+ <%= f.text_field :name, placeholder: @book.author.name%>
+  <%= f.label :birth_year %>
+ <%= f.select :birth_year, ( @book.author.birth_year || (Date.current.year - 100)...(Date.current.year + 1)) %><br>
+  <%= f.fields_for :books do |ff|  %>
+    <%= ff.text_field :title, placeholder: @book.title %>
+    <%= ff.label :published_year %>
+    <%= ff.select :published_year, ( @book.published_year || (Date.current.year - 100)...(Date.current.year + 1)) %><br>
+  <% end %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+ <% end %>
+
+</div>
+	<%= link_to "Delete Book", @model, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+ </div>
+

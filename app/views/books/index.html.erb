@@ -1,11 +1,15 @@
 
-<div class="container">
-	<%= link_to "Create Book", new_author_path %>
+<div class="row justify-content-center">
+	<%= link_to "Create Book", new_author_path, class: "btn btn-primary" %>
 </div>
 
-
+ 	
+ <div class="container">
 <% @model.each do |book| %>
-<%= link_to book.title, author_book_path( book.author.id, book.id) %>
-<%= book.published_year %>
+ <span> <b>Book Title: </b> </span>
+<%= link_to book.title.capitalize, book_path( book.id) %><br>
+<span> <b>Published Year: </b></span>
+<%= book.published_year %><br />
 <% end %>
+ </div>
 

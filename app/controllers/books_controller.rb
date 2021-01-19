@@ -4,8 +4,12 @@ class BooksController < ApplicationController
   end
 
   def show
-
   	load_model
+  end
+
+  def edit
+  	load_model
+  	load_author
   end
 
   def new
@@ -16,13 +20,10 @@ class BooksController < ApplicationController
   	@model = Book.new(book_params)
   end
 
-  def destroy
-  end
-
   private
 
   def book_params
-  	params.require(:book).permit(:title, :published_year)
+  	params.require(:book).permit(:title, :published_year, author_attributes:[:name, :birth_year])
   end
 
   def load_author
