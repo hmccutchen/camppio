@@ -1,4 +1,7 @@
 
+<%= link_to "Books", books_path %>
+
+
 <%= form_with model: @model do |f| %>
  <%= f.text_field :name, placeholder: "Author Name" %>
  <%= f.select :birth_year, (Date.current.year - 100)...(Date.current.year + 1) %>
